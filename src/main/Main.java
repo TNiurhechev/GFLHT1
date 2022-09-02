@@ -8,11 +8,13 @@ public class Main {
     }
 
     private void run(){
-        Animal[] animals = {new Cow("Maggie", 3), new PallasCat("Manulli", 7),
-        new Dog("Jackson", 4), new Cat("Bobby",1), new Cheetah("Thunder", 5)};
-        for(Animal a:animals) {
-            System.out.print(a.getClass().getSimpleName()+" says ");
-            a.voice();
+        AnimalController[] animals = {new AnimalController(new Cow("Maggie", 3)),
+                new AnimalController(new PallasCat("Manulli", 7)),
+        new AnimalController(new Dog("Jackson", 4)), new AnimalController(new Cat("Bobby",1)),
+                new AnimalController(new Cheetah("Thunder", 5))};
+        for(AnimalController delegator:animals) {
+            System.out.print(delegator.getAnimal().getClass().getSimpleName()+" says ");
+            delegator.voice();
             System.out.println();
         }
     }
